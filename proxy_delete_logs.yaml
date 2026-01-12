@@ -1,4 +1,4 @@
-- hosts: Proxy
+- hosts: my_servers
   become: true
   tasks:
     - name: Delete *.gz Logs
