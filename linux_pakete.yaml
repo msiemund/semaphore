@@ -1,0 +1,109 @@
+---
+- hosts: new_servers
+  become: true
+  tasks:
+    - name: Install a list of packages
+      ansible.builtin.apt:
+        pkg:
+        - snmpd
+        - open-vm-tools
+        - ntp
+        - libpam-radius-auth
+        - freeradius-utils
+
+    - name: Creates directory
+      ansible.builtin.file:
+        path: /home/ladmin/Configs
+        state: directory
+
+    - name: Copy "SetNTP.sh" file remote
+      copy:
+        src: /home/ladmin/SetNTP.sh
+        dest: /home/ladmin/SetNTP.sh
+        remote_src: no
+
+    - name: Copy "deletelogs.sh" file remote
+      copy:
+        src: /home/ladmin/deletelogs.sh
+        dest: /home/ladmin/deletelogs.sh
+        remote_src: no
+
+    - name: Copy "ntp.conf" file remote
+      copy:
+        src: /home/ladmin/Configs/ntp.conf
+        dest: /home/ladmin/Configs/ntp.conf
+        remote_src: no
+    - name: Copy "ntp.conf" file local
+      become: yes
+      become_user: root
+      ansible.builtin.copy:
+        src: /home/ladmin/Configs/ntp.conf
+        dest: /etc/ntp.conf
+        owner: root
+        group: root
+        mode: '0644'
+        backup: yes
+
+    - name: Copy "sshd_config" file remote
+      copy:
+        src: /home/ladmin/Configs/sshd_config
+        dest: /home/ladmin/Configs/sshd_condig
+        remote_src: no
+        - name: Copy "sshd_config" file local
+      become: yes
+      become_user: root
+      ansible.builtin.copy:
+        src: /home/ladmin/Configs/sshd_config
+        dest: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: '0600'
+        backup: yes
+
+    - name: Copy "snmpd.conf" file remote
+      copy:
+        src: /home/ladmin/Configs/snmpd.conf
+        dest: /home/ladmin/Configs/snmpd.conf
+        remote_src: no
+    - name: Copy "snmpd.conf" file local
+      become: yes
+      become_user: root
+      ansible.builtin.copy:
+        src: /home/ladmin/Configs/snmpd.conf
+        dest: /etc/snmp/snmpd.conf
+        owner: root
+        group: root
+        mode: '0600'
+        backup: yes
+
+    - name: Copy "sshd" file remote
+      copy:
+        src: /home/ladmin/Configs/sshd
+        dest: /home/ladmin/Configs/sshd
+        remote_src: no
+    - name: Copy "sshd" file local
+      become: yes
+      become_user: root
+      ansible.builtin.copy:
+        src: /home/ladmin/Configs/sshd
+        dest: /etc/pam.d/sshd
+        owner: root
+        group: root
+        mode: '0644'
+        backup: yes
+
+    - name: Copy "sudo" file remote
+      copy:
+        src: /home/ladmin/Configs/sudo
+        dest: /home/ladmin/Configs/sudo
+        remote_src: no
+    - name: Copy "sudo" file local
+      become: yes
+      become_user: root
+      ansible.builtin.copy:
+        src: /home/ladmin/Configs/sudo
+        dest: /etc/pam.d/sudo
+        owner: root
+        group: root
+        mode: '0644'
+        backup: yes
