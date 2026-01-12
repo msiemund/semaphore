@@ -1,12 +1,13 @@
 ---
 -hosts: my_servers
- become: true
-     - name: Copy "snmpd.conf" file remote
-      copy:
-        src: /home/semaphore/configs/snmpd.conf
-        dest: /home/ladmin/Configs/snmpd.conf
+ tasks:
+   - name: Copy "check-mk-agent.deb" file remote
+     copy:
+        src: /home/semaphore/check-mk-agent.deb
+        dest: /home/ladmin/check-mk-agent.deb
         remote_src: no
-- name: Allow python to be upgraded
-  ansible.builtin.dpkg_selections:
-    name: python
-    selection: install
+   - name: Install Agent
+     become: true
+     ansible.builtin.dpkg_selections:
+       name: /home/ladmin/check-mk-agent.deb
+       selection: install
