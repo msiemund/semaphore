@@ -1,4 +1,5 @@
 - hosts: Linux
+  become: true
   tasks:
     - name: Update and Upgrade
       apt:
