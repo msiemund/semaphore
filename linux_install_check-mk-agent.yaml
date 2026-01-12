@@ -1,6 +1,0 @@
----
-- hosts: my_servers
-  tasks:
-    - name: Install Agent
-      become: true
-      shell: apt install /home/ladmin/check-mk-agent.deb
