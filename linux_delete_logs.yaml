@@ -21,3 +21,11 @@
       shell: find /var/ -type f -name '*.8.log' -delete
     - name: Delete *.9.log Logs
       shell: find /var/ -type f -name '*.9.log' -delete
+    - name: Delete *.log.1 Logs
+      shell: find /var/ -type f -name '*.log.1' -delete
+    - name: Delete *.log.2 Logs
+      shell: find /var/ -type f -name '*.log.2' -delete
+    - name: Delete *.log.3 Logs
+      shell: find /var/ -type f -name '*.log.3' -delete
+    - name: Delete *.log.4 Logs
+      shell: find /var/ -type f -name '*.log.4' -delete
