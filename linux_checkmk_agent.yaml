@@ -6,7 +6,3 @@
         src: /home/semaphore/check-mk-agent.deb
         dest: /home/ladmin/check-mk-agent.deb
         remote_src: no
-
-    - name: Install Agent
-      become: true
-      shell: apt install /home/ladmin/check-mk-agent.deb
