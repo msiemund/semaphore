@@ -3,4 +3,4 @@
   tasks:
     - name: Install Agent
       become: true
-      shell: apt remove /home/ladmin/check-mk-agent.deb
+      shell: apt remove /home/ladmin/check-mk-agent
