@@ -1,4 +1,4 @@
-- hosts: Linux
+- hosts: my_servers
   become: true
   tasks:
     - name: Update and Upgrade
