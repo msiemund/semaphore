@@ -1,10 +1,10 @@
 ---
-- hosts: cisco_ios
+- hosts: cisco
   gather_facts: false
   tasks:
-  - name: Run cli_command on Cisco IOS and display results
+  - name: Run cli_command on Cisco and display results
     block:
-    - name: Run cli_command on Cisco IOS
+    - name: Run cli_command on Cisco
       ansible.netcommon.cli_command:
         command: show int status
       register: result
