@@ -1,0 +1,13 @@
+---
+- hosts: switche
+  tasks:
+  - name: Run cli_command on Cisco and display results
+    block:
+    - name: Run cli_command on Cisco
+      ansible.netcommon.cli_command:
+        command: wr
+      register: result
+
+    - name: Display result to terminal window
+      debug:
+        var: result.stdout_lines
