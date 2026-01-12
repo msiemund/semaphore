@@ -5,12 +5,9 @@
     block:
     - name: Run cli_command on Cisco
       ansible.netcommon.cli_command:
-        command: show run
+        command: copy run tftp
       register: result
 
     - name: Display result to terminal window
       debug:
         var: result.stdout_lines
-
-    - name: copy show run to file
-      local_action: copy content={{show_run.stdout[0]}} dest=/home/semaphore/backup/{{ hostvars.ansible_ssh_host }}.conf.{{ ansible_date_time.date }}
