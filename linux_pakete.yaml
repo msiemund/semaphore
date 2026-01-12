@@ -31,7 +31,7 @@
       become: yes
       become_user: root
       ansible.builtin.copy:
-        src: /home/semaphore/configs/sshd_config
+        src: /home/ladmin/configs/sshd_config
         dest: /etc/ssh/sshd_config
         owner: root
         group: root
@@ -47,7 +47,7 @@
       become: yes
       become_user: root
       ansible.builtin.copy:
-        src: /home/semaphore/configs/snmpd.conf
+        src: /home/ladmin/configs/snmpd.conf
         dest: /etc/snmp/snmpd.conf
         owner: root
         group: root
@@ -63,7 +63,7 @@
       become: yes
       become_user: root
       ansible.builtin.copy:
-        src: /home/semaphore/configs/sshd
+        src: /home/ladmin/configs/sshd
         dest: /etc/pam.d/sshd
         owner: root
         group: root
