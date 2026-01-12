@@ -1,12 +1,11 @@
 ---
 - hosts: cisco_ios
   gather_facts: no
-
   tasks:
+  - name: REGISTER VTY CONFIG ON DEVICE
+    ios_command:
+      commands:
+        - show run | beg line vty
+    register: vty
 
-  - name: GATHER FACTS
-    ios_facts:
-    
-    register: facts
-
-  - debug: var=facts.stdout_lines
+  - debug: var=vty.stdout_lines
