@@ -1,0 +1,9 @@
+- hosts: Linux
+  vars:
+    ansible_host_key_checking: false
+  become: true
+
+  tasks:
+    - name: Update and Upgrade
+      apt:
+        upgrade: "yes"
