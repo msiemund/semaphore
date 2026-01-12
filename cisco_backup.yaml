@@ -14,4 +14,4 @@
         
     - name: System timestamp - date
       debug:
-         msg:  "File: {{ ansible_ssh_host }}.conf.{{ cur_date }}"
+         msg:  "File: {{ ansible_ssh_host }}.conf.$(date +"%Y-%m-%d")"
