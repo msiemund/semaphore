@@ -1,7 +1,11 @@
 ---
 -hosts: my_servers
- become
- 
+ become: true
+     - name: Copy "snmpd.conf" file remote
+      copy:
+        src: /home/semaphore/configs/snmpd.conf
+        dest: /home/ladmin/Configs/snmpd.conf
+        remote_src: no
 - name: Allow python to be upgraded
   ansible.builtin.dpkg_selections:
     name: python
