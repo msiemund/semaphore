@@ -1,6 +1,0 @@
----
-- hosts: switche
-  tasks:
-    - name: "Display Variables"
-      debug:
-        var: ansible_facts
