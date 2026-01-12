@@ -1,13 +1,12 @@
 ---
--hosts: 10.2.30.21
- tasks:
-   - name: Copy "check-mk-agent.deb" file remote
-     copy:
+- hosts: 10.2.30.21
+  tasks:
+    - name: Copy "check-mk-agent.deb" file remote
+      copy:
         src: /home/semaphore/check-mk-agent.deb
         dest: /home/ladmin/check-mk-agent.deb
         remote_src: no
-   - name: Install Agent
-     become: true
-     ansible.builtin.dpkg_selections:
-       name: /home/ladmin/check-mk-agent.deb
-       selection: install
+
+    - name: Install Agent
+      become: true
+      shell: dpkg install check-mk-agent.deb
