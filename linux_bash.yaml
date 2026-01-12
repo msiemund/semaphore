@@ -1,0 +1,8 @@
+- hosts: Linux
+  vars:
+     ansible_host_key_checking: false
+  become: true
+
+  tasks:
+    - name: Change shell to /bin/bash
+      shell: usermod --shell /bin/bash ladmin
