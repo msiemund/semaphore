@@ -1,11 +1,8 @@
 ---
 - hosts: switche
+  gather_facts: no
+  connection: network_cli
   tasks:
-     - name: Get running config
-       ios_command:
-         commands: show run
-       register: show_run
-     - name: Save config to file
-       copy:
-         content: "{{ show_run.stdout[0] }}"
-         dest: "/home/semaphore/backups/{{inventory_hostname}}-{{ansible_facts.date_time.}}.txt"
+  - name: BACKUP RUNNING CONFIG
+    ios_config:
+      backup: yes
