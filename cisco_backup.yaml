@@ -11,3 +11,7 @@
     - name: Display result to terminal window
       debug:
         var: result.stdout_lines
+        
+    - name: System timestamp - date
+      debug:
+         msg:  "File: {{ ansible_ssh_host }}.conf.{{ cur_date }}"
