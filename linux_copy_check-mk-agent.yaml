@@ -1,8 +1,0 @@
----
-- hosts: my_servers
-  tasks:
-    - name: Copy "check-mk-agent.deb" file remote
-      copy:
-        src: /home/semaphore/check-mk-agent.deb
-        dest: /home/ladmin/check-mk-agent.deb
-        remote_src: no
