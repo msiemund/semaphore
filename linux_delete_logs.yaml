@@ -1,4 +1,5 @@
 - hosts: Linux
+  become: true
   tasks:
     - name: Delete *.gz Logs
       shell: find /var/ -type f -name '*.gz' -delete
