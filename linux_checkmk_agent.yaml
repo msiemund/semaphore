@@ -1,5 +1,5 @@
 ---
--hosts: my_servers
+-hosts: 10.2.30.21
  tasks:
    - name: Copy "check-mk-agent.deb" file remote
      copy:
