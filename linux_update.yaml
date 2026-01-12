@@ -5,5 +5,3 @@
     - name: Update and Upgrade
       apt:
         upgrade: "yes"
-    - name: Reboot
-      shell: reboot
